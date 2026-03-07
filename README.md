@@ -14,3 +14,4 @@ AI를 활용하여 조사하고 정리한 학습 자료 모음
 | `math/gaussian-splatting-study/` | Gaussian Splatting을 위한 수학 기초 커리큘럼 | 3 |
 | `math/algorithm-study/` | 알고리즘 학습 시리즈 | 5 |
 | `functional-programming/` | 함수형 프로그래밍 심화 커리큘럼 (Functor, Monad, 카테고리 이론) | 1 |
+| `long-term-rental/` | 장기렌트 장단점 분석, 리스·할부 비교 | 1 |
