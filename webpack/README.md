@@ -71,7 +71,7 @@ Module Federation의 내부 구조와 런타임 코드 생성 과정을 분석�
 - ContainerReferencePlugin (remote) 작동 원리
 - SharePlugin과 Share Scope 메커니즘
 - 런타임 코드 생성 과정
-- 버전 호환성 처리
+- 버전 호환성 처리 (Share Scope 버전 관리)
 
 **핵심 코드 위치**:
 - [lib/container/ModuleFederationPlugin.js](https://github.com/webpack/webpack/blob/main/lib/container/ModuleFederationPlugin.js) - 메인 플러그인
@@ -100,7 +100,7 @@ Next.js App Router 환경에서 Module Federation을 수동으로 구현하는 �
 - Next.js App Router의 제약사항
 - Remote 앱 구현 (React + Webpack)
 - Host 앱 구현 (Next.js App Router)
-- 수동 Federation Loader 구현
+- 수동 Federation Loader 구현 (수동 스크립트 로딩 전략)
 - Share Scope 수동 관리
 - 에러 처리 및 Fallback 전략
 - 트러블슈팅
@@ -189,9 +189,9 @@ Output (파일 생성)
 // ModuleFederationPlugin = 3개 플러그인의 조합
 new ModuleFederationPlugin({
     name: 'app',
-    exposes: {...},   // → ContainerPlugin
-    remotes: {...},   // → ContainerReferencePlugin
-    shared: {...}     // → SharePlugin
+    exposes: { './Button': './src/Button' },  // → ContainerPlugin
+    remotes: { remote: 'remote@url' },        // → ContainerReferencePlugin
+    shared: { react: {...} }                  // → SharePlugin
 })
 ```
 
